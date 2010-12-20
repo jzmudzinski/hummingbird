@@ -4,6 +4,8 @@ settings = JSON.parse File.read(File.join(File.dirname(__FILE__), 'app.json'))
 
 set :application, "hummingbird"
 set :scm, :git
+set :user, "node_js"
+set :use_sudo,      false
 
 set :repository, settings['capistrano']['repository']
 
@@ -16,7 +18,7 @@ role :db,  hummingbird_host
 depend :remote, :command, 'git'
 
 set :git_enable_submodules, 1
-set :deploy_to, "/var/www/#{application}"
+set :deploy_to, "/home/node/apps/#{application}"
 
 default_run_options[:pty] = true
 

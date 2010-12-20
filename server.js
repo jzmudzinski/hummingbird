@@ -47,7 +47,7 @@ db.open(function(p_db) {
     console.log('Web Socket server running at ws://*:' + config.tracking_port);
   });
 
-  console.log('Tracking server running at http://*:' + config.tracking_port + '/tracking_pixel.gif');
+  console.log('Tracking server running at http://*:' + config.tracking_port + '/t.gif');
 });
 
 if(config.enable_dashboard) {
