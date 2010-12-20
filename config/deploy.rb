@@ -19,8 +19,9 @@ depend :remote, :command, 'git'
 
 set :git_enable_submodules, 1
 set :deploy_to, "/home/node/apps/#{application}"
+set :normalize_asset_timestamps, false
 
-default_run_options[:pty] = true
+# default_run_options[:pty] = true
 
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
@@ -29,7 +30,7 @@ namespace :deploy do
   end
 
   task :pull_express_submodules, :roles => :app do
-    run "cd #{latest_release}/deps/express && git submodule update --init"
+    # run "cd #{latest_release}/deps/express && git submodule update --init"
   end
 end
 
