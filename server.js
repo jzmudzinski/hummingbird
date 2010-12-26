@@ -6,7 +6,7 @@ var http = require('http'),
   fs = require('fs'),
   static = require('deps/node-static/lib/node-static'),
   io = require('deps/node-socket.io'),
-  mongo = require('deps/node-mongodb-native/lib/mongodb'),
+  mongo = require('deps/node-mongodb-native/lib/mongodb').BSONPure,
   Hummingbird = require('hummingbird').Hummingbird;
 
 try {
