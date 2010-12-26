@@ -26,11 +26,10 @@ set :normalize_asset_timestamps, false
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} restart hummingbird"
-    run "#{try_sudo} restart hummingbird_monitor"
   end
 
   task :pull_express_submodules, :roles => :app do
-    # run "cd #{latest_release}/deps/express && git submodule update --init"
+    run "cd #{latest_release}/deps/express && git submodule update --init"
   end
 end
 
@@ -69,4 +68,4 @@ task :backup, :roles => :db do
 end
 
 after 'deploy:update_code', 'update:symlink_shared'
-after 'deploy:update_code', 'deploy:pull_express_submodules'
+# after 'deploy:update_code', 'deploy:pull_express_submodules'
